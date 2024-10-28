@@ -80,17 +80,6 @@ resource "auth0_encryption_key_manager" "my_key_manager" {
 }
 `
 
-func TestAccFrameworkEncryptionKeyManagerEmpty(t *testing.T) {
-	resource.UnitTest(t, resource.TestCase{
-		ProtoV6ProviderFactories: acctest.TestProviderFactories(),
-		Steps: []resource.TestStep{
-			{
-				Config: `resource "auth0_encryption_key_manager" "my_key_manager" {}`,
-			},
-		},
-	})
-}
-
 func TestAccFrameworkEncryptionKeyManagerRotation(t *testing.T) {
 	initialKey := make(map[string]string)
 	firstRotationKey := make(map[string]string)

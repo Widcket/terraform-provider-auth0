@@ -104,7 +104,9 @@ func (p *Auth0Provider) Configure(ctx context.Context, request provider.Configur
 
 // DataSources will be called by the framework to configure the auth0 provider data sources.
 func (p *Auth0Provider) DataSources(_ context.Context) []func() datasource.DataSource {
-	return []func() datasource.DataSource{}
+	return []func() datasource.DataSource{
+		NewDataSource,
+	}
 }
 
 // Resources will be called by the framework to configure the auth0 provider resources.
